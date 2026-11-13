@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #191918;
+  --card: #ffffff;
+  --card-foreground: #191918;
+  --popover: #ffffff;
+  --popover-foreground: #191918;
+  --primary: #191918;
+  --primary-foreground: #ffffff;
+  --secondary: #f7f6f3;
+  --secondary-foreground: #37352f;
+  --muted: #f1f1ef;
+  --muted-foreground: #787774;
+  --accent: #efefed;
+  --accent-foreground: #191918;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e6e5e2;
+  --input: #e6e5e2;
+  --ring: #2383e2;
+}
+
+.dark {
+  --background: #191919;
+  --foreground: #f1f1ef;
+  --card: #202020;
+  --card-foreground: #f1f1ef;
+  --popover: #252525;
+  --popover-foreground: #f1f1ef;
+  --primary: #f1f1ef;
+  --primary-foreground: #191919;
+  --secondary: #202020;
+  --secondary-foreground: #d4d4d2;
+  --muted: #2a2a2a;
+  --muted-foreground: #9b9a97;
+  --accent: #2f2f2f;
+  --accent-foreground: #f1f1ef;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2f2f2f;
+  --input: #2f2f2f;
+  --ring: #3b82f6;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+}
