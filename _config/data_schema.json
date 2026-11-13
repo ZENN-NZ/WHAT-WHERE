@@ -1,0 +1,60 @@
+{
+  "project": "WHAT-WHERE",
+  "enums": {
+    "user_role": ["admin", "member", "viewer"],
+    "invite_status": ["invited", "active", "revoked"],
+    "property_type": [
+      "title",
+      "text",
+      "number",
+      "select",
+      "multi_select",
+      "status",
+      "date",
+      "checkbox",
+      "url",
+      "person",
+      "relation",
+      "rollup"
+    ],
+    "view_type": ["table", "kanban", "calendar", "gallery"],
+    "rollup_aggregations": [
+      "count",
+      "count_values",
+      "sum",
+      "average",
+      "min",
+      "max",
+      "percent_checked",
+      "percent_unchecked",
+      "show_original"
+    ],
+    "audit_event_types": [
+      "OTP_REQUESTED",
+      "OTP_VERIFIED",
+      "UNAUTHORIZED_OTP_ATTEMPT",
+      "RATE_LIMIT_EXCEEDED",
+      "USER_INVITED",
+      "USER_REVOKED",
+      "VAULT_CONFIGURED",
+      "VAULT_LOCKED",
+      "VAULT_UNLOCKED",
+      "VAULT_UNLOCK_FAILED"
+    ]
+  },
+  "storage": {
+    "bucket": "workspace-assets",
+    "public": false,
+    "maxFileSizeBytes": 52428800,
+    "allowedMimeTypes": [
+      "image/png",
+      "image/jpeg",
+      "image/webp",
+      "image/gif",
+      "image/svg+xml",
+      "application/pdf",
+      "text/plain",
+      "text/markdown"
+    ]
+  }
+}
