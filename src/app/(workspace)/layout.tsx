@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getDocumentTreeAction } from "@/actions/document.actions";
 import { WorkspaceProvider } from "@/components/navigation/WorkspaceContext";
 import { WorkspaceShell } from "@/components/navigation/WorkspaceShell";
+import { VaultProvider } from "@/components/editor/VaultProvider";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,7 @@ export default async function WorkspaceLayout({
   const [{ data: profile }, { data: isAdmin }, tree] = await Promise.all([
     supabase
       .from("profiles")
-      .select("display_name")
+      .select("display_name, vault_salt, vault_verifier")
       .eq("id", user.id)
       .maybeSingle(),
     supabase.rpc("is_admin_user"),
@@ -43,7 +44,12 @@ export default async function WorkspaceLayout({
         isAdmin: Boolean(isAdmin),
       }}
     >
-      <WorkspaceShell>{children}</WorkspaceShell>
+      <VaultProvider
+        initialVaultSalt={profile?.vault_salt ?? null}
+        initialVaultVerifier={profile?.vault_verifier ?? null}
+      >
+        <WorkspaceShell>{children}</WorkspaceShell>
+      </VaultProvider>
     </WorkspaceProvider>
   );
 }
